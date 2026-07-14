@@ -84,6 +84,13 @@ function switchView(viewName) {
 
     document.getElementById(`view-${viewName}`).classList.add('active');
     
+    const titleLabel = document.getElementById('view-title-label');
+    if (titleLabel) {
+        titleLabel.innerText = 
+            viewName === 'dashboard' ? 'Monitoreo Camión' :
+            viewName === 'history' ? 'Historial de Cargas' : 'Parámetros del Sistema';
+    }
+    
     if (viewName === 'dashboard') {
         document.getElementById('nav-dashboard').classList.add('active');
         fetchDashboardData();

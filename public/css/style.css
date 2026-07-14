@@ -56,10 +56,164 @@ body {
     pointer-events: none;
 }
 
-.app-container {
-    max-width: 1780px;
-    margin: 0 auto;
-    padding: 95px 24px 30px 24px;
+.app-layout {
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--bg-main);
+}
+
+.app-sidebar {
+    width: 260px;
+    min-width: 260px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #ffffff;
+    border-right: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    z-index: 1000;
+}
+
+.sidebar-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.sidebar-logo .logo-icon {
+    font-size: 24px;
+    color: var(--color-cargando);
+}
+
+.sidebar-logo h2 {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: #0f172a;
+}
+
+.sidebar-logo h2 span {
+    color: var(--color-techos);
+}
+
+.sidebar-sync {
+    margin-bottom: 24px;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex-grow: 1;
+}
+
+.sidebar-nav .nav-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #475569;
+    border: 1px solid transparent;
+    background: transparent;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s ease;
+}
+
+.sidebar-nav .nav-btn i {
+    font-size: 16px;
+    width: 20px;
+}
+
+.sidebar-nav .nav-btn:hover {
+    background-color: #f1f5f9;
+    color: #0f172a;
+}
+
+.sidebar-nav .nav-btn.active {
+    background-color: #f1f5f9;
+    border-color: #cbd5e1;
+    color: #0f172a;
+}
+
+.sidebar-footer {
+    border-top: 1px solid #e2e8f0;
+    padding-top: 20px;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #f1f5f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: #64748b;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-name {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.user-role {
+    font-size: 11px;
+    font-weight: 600;
+    color: #64748b;
+}
+
+.app-content-wrapper {
+    margin-left: 260px;
+    flex-grow: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 0 40px 40px 40px;
+}
+
+.content-top-bar {
+    height: 80px;
+    min-height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e2e8f0;
+    margin-bottom: 24px;
+}
+
+.view-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: #0f172a;
+    letter-spacing: -0.5px;
+}
+
+.top-bar-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
 }
 
 .glass {
@@ -68,24 +222,6 @@ body {
     border-radius: 16px;
     box-shadow: var(--shadow-soft);
     transition: box-shadow var(--transition-normal), border-color var(--transition-normal);
-}
-
-/* CABECERA (HEADER) */
-.app-header {
-    position: fixed;
-    top: 12px;
-    left: 24px;
-    right: 24px;
-    height: 70px;
-    z-index: 1000;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 24px;
-    background-color: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(12px);
-    border-radius: 14px;
-    border: 1px solid var(--border-color);
 }
 
 .header-left {
@@ -390,13 +526,14 @@ body {
 .truck-cargo-box {
     width: 100%;
     height: 220px;
-    background-color: #ffffff; /* Fondo blanco de la parte vacía */
-    border: 3.5px solid #1e293b;
+    background-color: #f1f5f9; /* Fondo gris claro de contenedor vacío */
+    border: 3px solid #64748b;
     border-radius: 12px;
     display: flex;
     position: relative;
     overflow: hidden;
     transition: all 0.3s ease;
+    box-shadow: inset 0 8px 16px rgba(0,0,0,0.06);
 }
 
 .truck-cargo-box.demorado {
@@ -414,16 +551,17 @@ body {
     flex: 1;
     position: relative;
     height: 100%;
-    border-right: 2.5px solid #e2e8f0;
+    border-right: 2.5px solid #cbd5e1; /* Divisores metálicos de columnas */
     display: flex;
     transition: border-color 0.3s ease;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.1));
 }
 
 .cargo-column:last-child {
     border-right: none;
 }
 
-/* RELLENO VERTICAL SUBRAYADO */
+/* RELLENO VERTICAL SUBRAYADO (EFECTO CAJAS DE CARGA APILADAS) */
 .col-bg-fill {
     position: absolute;
     bottom: 0;
@@ -432,16 +570,33 @@ body {
     height: 0%;
     z-index: 1;
     transition: height 0.6s cubic-bezier(0.1, 0.8, 0.2, 1), background-color 0.4s ease;
+    border-top: 2px solid rgba(255, 255, 255, 0.4);
+    box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.3), inset 0 -2px 4px rgba(0, 0, 0, 0.15);
 }
 
-/* Colores planos exactos mockup */
-.col-bg-fill.bg-asientos { background-color: #42c142; }
-.col-bg-fill.bg-paneles { background-color: #a855f7; }
-.col-bg-fill.bg-techos { background-color: #3b82f6; }
-.col-bg-fill.bg-filtros { background-color: #f97316; }
+/* Colores planos con patrón de divisiones de pallets */
+.col-bg-fill.bg-asientos { 
+    background-color: #22c55e; 
+    background-image: repeating-linear-gradient(to top, rgba(0,0,0,0.12) 0, rgba(0,0,0,0.12) 2px, transparent 2px, transparent 18px);
+}
+.col-bg-fill.bg-paneles { 
+    background-color: #a855f7; 
+    background-image: repeating-linear-gradient(to top, rgba(0,0,0,0.12) 0, rgba(0,0,0,0.12) 2px, transparent 2px, transparent 18px);
+}
+.col-bg-fill.bg-techos { 
+    background-color: #3b82f6; 
+    background-image: repeating-linear-gradient(to top, rgba(0,0,0,0.12) 0, rgba(0,0,0,0.12) 2px, transparent 2px, transparent 18px);
+}
+.col-bg-fill.bg-filtros { 
+    background-color: #f97316; 
+    background-image: repeating-linear-gradient(to top, rgba(0,0,0,0.12) 0, rgba(0,0,0,0.12) 2px, transparent 2px, transparent 18px);
+}
 
 /* Sobrescribir colores por alerta logistica */
-.cargo-column.demorado .col-bg-fill { background-color: var(--state-demorado) !important; }
+.cargo-column.demorado .col-bg-fill { 
+    background-color: var(--state-demorado) !important;
+    background-image: repeating-linear-gradient(to top, rgba(0,0,0,0.12) 0, rgba(0,0,0,0.12) 2px, transparent 2px, transparent 18px) !important;
+}
 
 /* Efecto glow wave sutil */
 .col-bg-fill.newly-loaded {

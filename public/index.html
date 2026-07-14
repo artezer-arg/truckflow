@@ -17,48 +17,76 @@
     <!-- Capa de fondo claro neutro -->
     <div class="app-background"></div>
 
-    <!-- Contenedor Principal -->
-    <div class="app-container">
+    <!-- Contenedor Principal en Layout de Dos Columnas (Sidebar + Workspace) -->
+    <div class="app-layout">
         
-        <!-- Cabecera Superior Fija -->
-        <header class="app-header glass">
-            <div class="header-left">
-                <div class="logo">
-                    <i class="fa-solid fa-truck-moving logo-icon"></i>
-                    <h1>Truck<span>Flow</span></h1>
-                </div>
+        <!-- Sidebar Izquierdo -->
+        <aside class="app-sidebar">
+            <div class="sidebar-logo">
+                <i class="fa-solid fa-truck-moving logo-icon"></i>
+                <h2>Truck<span>Flow</span></h2>
+            </div>
+            
+            <div class="sidebar-sync">
                 <div class="live-indicator">
                     <span class="pulse-dot"></span>
                     <span>EN VIVO</span>
                 </div>
             </div>
-            
-            <!-- Reloj e Información de Planta -->
-            <div class="header-center">
-                <div class="plant-badge">
-                    <i class="fa-solid fa-calendar"></i>
-                    <span id="header-date">--/--/----</span>
-                </div>
-                <div class="plant-badge">
-                    <i class="fa-solid fa-clock"></i>
-                    <span id="header-shift">Turno --</span>
-                </div>
-                <div class="clock-display" id="header-clock">00:00:00</div>
-            </div>
 
             <!-- Navegación de Vistas -->
-            <nav class="header-right">
+            <nav class="sidebar-nav">
                 <button id="nav-dashboard" class="nav-btn active" onclick="switchView('dashboard')">
-                    <i class="fa-solid fa-truck-ramp-box"></i> Monitoreo Camión
+                    <i class="fa-solid fa-truck-ramp-box"></i>
+                    <span>Monitoreo</span>
                 </button>
                 <button id="nav-history" class="nav-btn" onclick="switchView('history')">
-                    <i class="fa-solid fa-clock-rotate-left"></i> Historial
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    <span>Historial</span>
                 </button>
                 <button id="nav-settings" class="nav-btn" onclick="switchView('settings')">
-                    <i class="fa-solid fa-gears"></i> Parámetros
+                    <i class="fa-solid fa-gears"></i>
+                    <span>Parámetros</span>
                 </button>
             </nav>
-        </header>
+
+            <!-- Perfil / Información de Turno abajo -->
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar">
+                        <i class="fa-solid fa-user-tie"></i>
+                    </div>
+                    <div class="user-info">
+                        <span class="user-name">Operador Planta</span>
+                        <span class="user-role">Logística JITMS</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Contenedor del Espacio de Trabajo (Derecha) -->
+        <div class="app-content-wrapper">
+            
+            <!-- Barra Superior Minimalista -->
+            <header class="content-top-bar">
+                <div class="top-bar-left">
+                    <h1 class="view-title" id="view-title-label">Monitoreo Camión</h1>
+                </div>
+                <div class="top-bar-right">
+                    <div class="plant-badge">
+                        <i class="fa-solid fa-calendar"></i>
+                        <span id="header-date">--/--/----</span>
+                    </div>
+                    <div class="plant-badge">
+                        <i class="fa-solid fa-clock"></i>
+                        <span id="header-shift">Turno --</span>
+                    </div>
+                    <div class="clock-display" id="header-clock">00:00:00</div>
+                </div>
+            </header>
+
+            <!-- Contenedor de Vistas SPA -->
+            <div class="view-container">
 
         <!-- ======================================================= -->
         <!-- SECCIÓN 1: VISTA DASHBOARD (MONITOR CONCEPTUAL)        -->
@@ -628,7 +656,9 @@
             </div>
         </main>
 
-    </div>
+            </div> <!-- view-container -->
+        </div> <!-- app-content-wrapper -->
+    </div> <!-- app-layout -->
 
     <!-- Toast Notification -->
     <div id="toast" class="toast hidden">
