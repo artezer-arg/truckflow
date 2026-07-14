@@ -507,16 +507,16 @@ body {
 /* OVERLAY CON LAS 4 COLUMNAS DINÁMICAS POSICIONADAS EXACTAMENTE EN EL REMOLQUE */
 .truck-cargo-columns-overlay {
     position: absolute;
-    left: 27.2%;
-    width: 70.8%;
-    top: 12.8%;
-    height: 54%;
+    left: 33.8%;
+    width: 63.8%;
+    top: 11.2%;
+    height: 59.8%;
     display: flex;
     z-index: 20;
     border-radius: 6px;
     overflow: hidden;
     background-color: rgba(241, 245, 249, 0.22); /* Semi-transparente para ver el fondo */
-    border: 2px solid #475569;
+    border: 2.5px solid #475569;
     box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.08);
 }
 
@@ -652,19 +652,11 @@ body {
 
 /* PASTILLAS DE SECUENCIAS FLOTANTES DEBAJO DE LA CAJA */
 .pills-container {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    padding: 12px 10px 0 10px;
-    margin-bottom: 10px;
-}
-
-.pills-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     justify-items: center;
-    width: 70.8%;
-    margin-left: 27.2%;
+    width: 63.8%;
+    margin-left: 33.8%;
     padding: 10px 0;
 }
 
