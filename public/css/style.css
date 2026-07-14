@@ -545,7 +545,7 @@ body {
     border-right: none;
 }
 
-/* RELLENO VERTICAL SUBRAYADO (EFECTO CAJAS DE CARGA APILADAS) */
+/* RELLENO VERTICAL SUBRAYADO (EFECTO CUBOS DE CARGA 3D APILADOS) */
 .col-bg-fill {
     position: absolute;
     bottom: 0;
@@ -554,32 +554,60 @@ body {
     height: 0%;
     z-index: 1;
     transition: height 0.6s cubic-bezier(0.1, 0.8, 0.2, 1), background-color 0.4s ease;
-    border-top: 2px solid rgba(255, 255, 255, 0.4);
-    box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.3), inset 0 -2px 4px rgba(0, 0, 0, 0.15);
+    border-top: 3px solid rgba(255, 255, 255, 0.85); /* Tapa superior blanca iluminada */
+    box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.5), inset -2px 0 6px rgba(0, 0, 0, 0.25);
 }
 
-/* Colores planos con patrón de divisiones de pallets */
+/* Tapa superior 3D (Cara superior del cubo en perspectiva) */
+.col-bg-fill::before {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: 0;
+    width: 100%;
+    height: 12px;
+    background: inherit;
+    background-image: linear-gradient(to bottom, rgba(255,255,255,0.45), rgba(255,255,255,0.1));
+    filter: brightness(1.25);
+    transform-origin: bottom center;
+    transform: perspective(100px) rotateX(25deg);
+    border-top: 1.5px solid rgba(255,255,255,0.6);
+    box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+    z-index: 2;
+}
+
+/* Colores 3D con cara frontal clara (72%) y cara lateral sombreada (28%) + rejilla de pallets */
 .col-bg-fill.bg-asientos { 
-    background-color: #22c55e; 
-    background-image: repeating-linear-gradient(to top, rgba(0,0,0,0.12) 0, rgba(0,0,0,0.12) 2px, transparent 2px, transparent 18px);
+    background-color: #22c55e;
+    background-image: 
+        linear-gradient(to right, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.1) 72%, rgba(0,0,0,0.18) 72%, rgba(0,0,0,0.18) 100%),
+        repeating-linear-gradient(to top, rgba(0,0,0,0.12) 0, rgba(0,0,0,0.12) 2px, transparent 2px, transparent 18px);
 }
 .col-bg-fill.bg-paneles { 
-    background-color: #a855f7; 
-    background-image: repeating-linear-gradient(to top, rgba(0,0,0,0.12) 0, rgba(0,0,0,0.12) 2px, transparent 2px, transparent 18px);
+    background-color: #a855f7;
+    background-image: 
+        linear-gradient(to right, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.1) 72%, rgba(0,0,0,0.18) 72%, rgba(0,0,0,0.18) 100%),
+        repeating-linear-gradient(to top, rgba(0,0,0,0.12) 0, rgba(0,0,0,0.12) 2px, transparent 2px, transparent 18px);
 }
 .col-bg-fill.bg-techos { 
-    background-color: #3b82f6; 
-    background-image: repeating-linear-gradient(to top, rgba(0,0,0,0.12) 0, rgba(0,0,0,0.12) 2px, transparent 2px, transparent 18px);
+    background-color: #3b82f6;
+    background-image: 
+        linear-gradient(to right, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.1) 72%, rgba(0,0,0,0.18) 72%, rgba(0,0,0,0.18) 100%),
+        repeating-linear-gradient(to top, rgba(0,0,0,0.12) 0, rgba(0,0,0,0.12) 2px, transparent 2px, transparent 18px);
 }
 .col-bg-fill.bg-filtros { 
-    background-color: #f97316; 
-    background-image: repeating-linear-gradient(to top, rgba(0,0,0,0.12) 0, rgba(0,0,0,0.12) 2px, transparent 2px, transparent 18px);
+    background-color: #f97316;
+    background-image: 
+        linear-gradient(to right, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.1) 72%, rgba(0,0,0,0.18) 72%, rgba(0,0,0,0.18) 100%),
+        repeating-linear-gradient(to top, rgba(0,0,0,0.12) 0, rgba(0,0,0,0.12) 2px, transparent 2px, transparent 18px);
 }
 
-/* Sobrescribir colores por alerta logistica */
+/* Sobrescribir colores por alerta logistica (con sombreado 3D y rejilla) */
 .cargo-column.demorado .col-bg-fill { 
     background-color: var(--state-demorado) !important;
-    background-image: repeating-linear-gradient(to top, rgba(0,0,0,0.12) 0, rgba(0,0,0,0.12) 2px, transparent 2px, transparent 18px) !important;
+    background-image: 
+        linear-gradient(to right, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.1) 72%, rgba(0,0,0,0.18) 72%, rgba(0,0,0,0.18) 100%),
+        repeating-linear-gradient(to top, rgba(0,0,0,0.12) 0, rgba(0,0,0,0.12) 2px, transparent 2px, transparent 18px) !important;
 }
 
 /* Efecto glow wave sutil */
