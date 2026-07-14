@@ -132,88 +132,63 @@
                         </div>
                     </section>
 
-                    <!-- GRÁFICO CENTRAL: CAMIÓN LATERAL CON COLUMNAS V5 -->
+                    <!-- GRÁFICO CENTRAL: CAMIÓN LATERAL REALISTA INTEGRADO -->
                     <section class="truck-graphic-section glass">
-                        <div class="truck-wrapper">
-                            <!-- Cabina del Camión (Cargada desde la imagen PNG generada) -->
-                            <div class="truck-cabin-container">
-                                <img src="/images/truck_cabin.png" alt="Cabin" class="truck-cabin-img">
-                            </div>
+                        <div class="truck-display-container">
+                            <!-- Imagen 3D integrada del camión vacío -->
+                            <img src="/images/truck_full.png" alt="Truck" class="truck-full-bg">
                             
-                            <!-- Caja de Carga (Rectángulo acoplado de 4 columnas) -->
-                            <div class="truck-cargo-box-wrapper">
-                                <div class="truck-cargo-box" id="truck-cargo-container">
-                                    
-                                    <!-- 1. Asientos Column -->
-                                    <div class="cargo-column" id="col-item-asientos">
-                                        <!-- Relleno de color -->
-                                        <div class="col-bg-fill bg-asientos" id="col-fill-asientos" style="height: 0%"></div>
-                                        <div class="col-text-wrapper">
-                                            <div class="col-header">
-                                                <i class="fa-solid fa-chair text-asientos"></i> ASIENTOS
-                                            </div>
-                                            <div class="col-pct text-asientos" id="col-pct-asientos">0%</div>
-                                            <div class="col-frac" id="col-frac-asientos">0 / 24</div>
-                                        </div>
+                            <!-- Capa overlay con las 4 columnas de avance vertical -->
+                            <div class="truck-cargo-columns-overlay" id="truck-cargo-container">
+                                
+                                <!-- 1. Asientos Column -->
+                                <div class="cargo-column" id="col-item-asientos">
+                                    <div class="col-bg-fill bg-asientos" id="col-fill-asientos" style="height: 0%"></div>
+                                    <div class="col-text-wrapper">
+                                        <div class="col-header"><i class="fa-solid fa-chair text-asientos"></i> ASIENTOS</div>
+                                        <div class="col-pct text-asientos" id="col-pct-asientos">0%</div>
+                                        <div class="col-frac" id="col-frac-asientos">0 / 24</div>
                                     </div>
-                                    
-                                    <!-- 2. Paneles Column -->
-                                    <div class="cargo-column" id="col-item-paneles">
-                                        <div class="col-bg-fill bg-paneles" id="col-fill-paneles" style="height: 0%"></div>
-                                        <div class="col-text-wrapper">
-                                            <div class="col-header">
-                                                <i class="fa-solid fa-border-all text-paneles"></i> PANELES
-                                            </div>
-                                            <div class="col-pct text-paneles" id="col-pct-paneles">0%</div>
-                                            <div class="col-frac" id="col-frac-paneles">0 / 24</div>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- 3. Techos Column -->
-                                    <div class="cargo-column" id="col-item-techos">
-                                        <div class="col-bg-fill bg-techos" id="col-fill-techos" style="height: 0%"></div>
-                                        <div class="col-text-wrapper">
-                                            <div class="col-header">
-                                                <i class="fa-solid fa-chevron-up text-techos"></i> TECHOS
-                                            </div>
-                                            <div class="col-pct text-techos" id="col-pct-techos">0%</div>
-                                            <div class="col-frac" id="col-frac-techos">0 / 12</div>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- 4. Filtros Column -->
-                                    <div class="cargo-column" id="col-item-filtros">
-                                        <div class="col-bg-fill bg-filtros" id="col-fill-filtros" style="height: 0%"></div>
-                                        <div class="col-text-wrapper">
-                                            <div class="col-header">
-                                                <i class="fa-solid fa-wind text-filtros"></i> FILTROS AIRE
-                                            </div>
-                                            <div class="col-pct text-filtros" id="col-pct-filtros">0%</div>
-                                            <div class="col-frac" id="col-frac-filtros">0 / 24</div>
-                                        </div>
-                                    </div>
-
                                 </div>
-
-                                <!-- Pastillas de Secuencias Flotantes Debajo del Acoplado -->
-                                <div class="pills-container">
-                                    <div class="col-seq-pill" id="col-seq-asientos">000 a 000</div>
-                                    <div class="col-seq-pill" id="col-seq-paneles">000 a 000</div>
-                                    <div class="col-seq-pill" id="col-seq-techos">000 a 000</div>
-                                    <div class="col-seq-pill" id="col-seq-filtros">000 a 000</div>
+                                
+                                <!-- 2. Paneles Column -->
+                                <div class="cargo-column" id="col-item-paneles">
+                                    <div class="col-bg-fill bg-paneles" id="col-fill-paneles" style="height: 0%"></div>
+                                    <div class="col-text-wrapper">
+                                        <div class="col-header"><i class="fa-solid fa-border-all text-paneles"></i> PANELES</div>
+                                        <div class="col-pct text-paneles" id="col-pct-paneles">0%</div>
+                                        <div class="col-frac" id="col-frac-paneles">0 / 24</div>
+                                    </div>
                                 </div>
-
-                                <!-- Ruedas traseras (3 ruedas) y chasis debajo del acoplado -->
-                                <div class="cargo-wheels-area">
-                                    <div class="cargo-chassis-line"></div>
-                                    <div class="cargo-landing-gear"></div>
-                                    <div class="cargo-rear-wheels">
-                                        <div class="wheel spinning"><div class="wheel-spoke"></div></div>
-                                        <div class="wheel spinning"><div class="wheel-spoke"></div></div>
-                                        <div class="wheel spinning"><div class="wheel-spoke"></div></div>
+                                
+                                <!-- 3. Techos Column -->
+                                <div class="cargo-column" id="col-item-techos">
+                                    <div class="col-bg-fill bg-techos" id="col-fill-techos" style="height: 0%"></div>
+                                    <div class="col-text-wrapper">
+                                        <div class="col-header"><i class="fa-solid fa-chevron-up text-techos"></i> TECHOS</div>
+                                        <div class="col-pct text-techos" id="col-pct-techos">0%</div>
+                                        <div class="col-frac" id="col-frac-techos">0 / 12</div>
+                                    </div>
+                                </div>
+                                
+                                <!-- 4. Filtros Column -->
+                                <div class="cargo-column" id="col-item-filtros">
+                                    <div class="col-bg-fill bg-filtros" id="col-fill-filtros" style="height: 0%"></div>
+                                    <div class="col-text-wrapper">
+                                        <div class="col-header"><i class="fa-solid fa-wind text-filtros"></i> FILTROS AIRE</div>
+                                        <div class="col-pct text-filtros" id="col-pct-filtros">0%</div>
+                                        <div class="col-frac" id="col-frac-filtros">0 / 24</div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+
+                        <!-- Pastillas de Secuencias Flotantes Debajo del Camión -->
+                        <div class="pills-container" style="width: 100%; max-width: 1050px; margin-top: 16px; margin-bottom: 8px;">
+                            <div class="col-seq-pill" id="col-seq-asientos">000 a 000</div>
+                            <div class="col-seq-pill" id="col-seq-paneles">000 a 000</div>
+                            <div class="col-seq-pill" id="col-seq-techos">000 a 000</div>
+                            <div class="col-seq-pill" id="col-seq-filtros">000 a 000</div>
                         </div>
 
                         <!-- Leyenda de Deslinde Físico -->
