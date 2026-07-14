@@ -1,0 +1,3 @@
+node_modules/
+.env
+database/local_db.json
