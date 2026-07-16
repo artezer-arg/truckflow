@@ -144,6 +144,12 @@ async function getPool() {
     try {
         console.log(`🔌 Conectando a SQL Server en ${sqlConfig.server}:${sqlConfig.port}...`);
         dbPool = await sql.connect(sqlConfig);
+        
+        // Registrar manejador de errores del pool para evitar caídas del proceso
+        dbPool.on('error', err => {
+            console.error("❌ Error en el Connection Pool de SQL Server:", err.message);
+        });
+
         console.log("✅ Conexión establecida con SQL Server.");
         await ensureSqlTablesExist(dbPool);
         return dbPool;

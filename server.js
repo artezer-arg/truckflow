@@ -3,6 +3,15 @@ const path = require('path');
 const db = require('./database/db');
 require('dotenv').config();
 
+// CONTROL DE ERRORES GLOBAL PARA EVITAR CAÍDAS POR CAUSA DE TIMEOUTS O CAÍDAS DE RED DE SQL SERVER
+process.on('uncaughtException', (err) => {
+    console.error('🔥 EXCEPCIÓN NO CONTROLADA DETECTADA (uncaughtException):', err);
+});
+
+process.on('unhandledRejection', (reason, promise) => {
+    console.error('🔥 RECHAZO DE PROMESA NO CONTROLADO DETECTADO (unhandledRejection):', reason);
+});
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
